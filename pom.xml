@@ -6,7 +6,7 @@
 	<groupId>com.zuperztarahn</groupId>
 	<artifactId>springboot-restful-api-starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>springboot-restful-api-starter</name>
 	<description>SpringBoot RESTful API Starter</description>
@@ -61,7 +61,41 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- Default spring profile to use -->
+				<spring.profiles.active>local</spring.profiles.active>
+				<!-- Default environment -->
+				<environment>local</environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<spring.profiles.active>dev</spring.profiles.active>
+				<environment>develop</environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<spring.profiles.active>prod</spring.profiles.active>
+				<environment>production</environment>
+			</properties>
+		</profile>
+	</profiles>
 
 </project>
