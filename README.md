@@ -14,6 +14,11 @@
 # Enviroment
 - JDK 1.8
 
+# Run Application for Development Enviroment
+```
+./mvnw spring-boot:run -Dspring.profiles.active=dev
+```
+
 # Building for production
 ```
 ./mvnw -Pprod package
