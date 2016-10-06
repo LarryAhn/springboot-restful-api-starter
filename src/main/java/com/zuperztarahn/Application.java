@@ -24,6 +24,7 @@ public class Application extends SpringBootServletInitializer {
 		System.out.println("Application started profile : " + env);
 	}
 
+	// TODO 아래 index()는 env 별 확인 용으로 없어져야 할 것. @RestController 애노테이션 또한 없어져야할 것!
 	@GetMapping
 	public String index() {
 		return env;
